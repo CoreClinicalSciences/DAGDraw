@@ -45,7 +45,7 @@ ui <- page_navbar(
    theme = appTheme,
    title = div(
       style = "display: flex; align-items: center; justify-content: space-between; width: 100%;",
-      span("DAGagramR v0.1.1"),
+      span("DAGDraw v0.1.1"),
       tags$img(src = "CCSlogo.png", height = "35px", style = "margin-right: 10px; margin-left: 10px;")
    ),
    
@@ -130,7 +130,7 @@ server <- function(input, output, session) {
    # Show initial modal
    observe({
       showModal(modalDialog(
-         tags$p("Welcome to DAGagramR", 
+         tags$p("Welcome to DAGDraw", 
                 style = "font-size: 2rem; font-weight: bold; margin-bottom: 20px; text-align: center;"), # Custom title styling
          h5("Please enter the initial settings for your DAG.",
                # Tooltip beside the Name label
