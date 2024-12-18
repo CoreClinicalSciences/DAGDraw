@@ -4,7 +4,7 @@ This shiny app has been built to faciliate causal reasoning. With this tool, use
 
 This app has been developed by members of [Core Clinical Sciences](https://www.coreclinicalsciences.com)
 
-Main contact: [Quang\@coreclinicalsciences.com](mailto:Quang@coreclinicalsciences.com){.email}
+Main contact: [Quang\@coreclinicalsciences.com](mailto:Quang@coreclinicalsciences.com)
 
 ## User Guide
 
