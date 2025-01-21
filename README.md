@@ -1,3 +1,4 @@
+##### Requires R version 4.4.2 & renv version 1.0.11
 ##### RUN renv::restore() before running app
 
 # DAGDraw - Causal Diagrams Visualization shiny app <img src="productionDAGshiny/www/DAGDraw-Logo.png" align="right" width="80"/>
