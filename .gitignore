@@ -1,0 +1,23 @@
+# R specific
+.Rproj.user/
+.Rhistory
+.RData
+.Ruserdata
+
+# renv specific
+renv/library/
+renv/python/
+renv/staging/
+.Rprofile
+
+# Shiny specific
+rsconnect/
+
+# OS specific
+.DS_Store
+Thumbs.db
+
+# Editor specific
+*.swp
+*.swo
+.idea/
