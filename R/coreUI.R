@@ -35,7 +35,7 @@ compileUI <- function(theme) {
             # Sidebar Column
             column(
                width = 3,
-               style = "max-width: 300px;",
+               style = "width: fit-content;",
                card(
                   full_screen = TRUE,
                   displayNodesUI("displayNodes")

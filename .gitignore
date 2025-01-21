@@ -5,12 +5,6 @@
 .RData
 .Ruserdata
 
-# renv specific
-renv/library/
-renv/python/
-renv/staging/
-.Rprofile
-
 # Shiny specific
 rsconnect/
 
