@@ -1,3 +1,5 @@
+##### RUN renv::restore() before running app
+
 # DAGDraw - Causal Diagrams Visualization shiny app <img src="productionDAGshiny/www/DAGDraw-Logo.png" align="right" width="80"/>
 
 This shiny app has been built to faciliate causal reasoning. With this tool, users can build causal diagrams, Directed Acyclic Graphs (DAGs), to visually represent assumptions about causal relationships between variables.
