@@ -1,5 +1,9 @@
-##### Requires R version 4.4.2 & renv version 1.0.11
-##### RUN renv::restore() before running app
+## Package Management
+
+##This project uses renv for package management. On macOS, packages will be installed as binaries by default through configuration in `.Rprofile`. To install all required packages:
+
+##```R
+##renv::restore()
 
 # DAGDraw - Causal Diagrams Visualization shiny app <img src="productionDAGshiny/www/DAGDraw-Logo.png" align="right" width="80"/>
 
