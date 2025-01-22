@@ -31,13 +31,13 @@ createClipboardHandler <- function() {
 createDagOptions <- function() {
    card(
       style = "flex-shrink: 0;",  # Prevent shrinking
-      h2("DAG Options", style = "margin: 0 0 10px; border-bottom: solid; color: var(--fg); text-align: center;"),
       div(
+         h2("DAG Options", style = "margin: 0 0 10px; border-bottom: solid; color: var(--fg); text-align: center;"),
          div(
             style = "width: 100%; margin-bottom: 10px;",
             selectInput(
                inputId = "layoutSelect",
-               label = "Select Graph Layout",
+               label = "Select Graph Layout:",
                choices = LAYOUT_OPTIONS,
                selected = DEFAULT_LAYOUT
             )
@@ -63,8 +63,8 @@ createDagOptions <- function() {
 createPathAnalysis <- function() {
    ns <- NS("openDAG")
    card(
-      style = "flex: 1; min-height: 0; display: flex; flex-direction: column;",  # Added flex grow
-      h2("Path Analysis", style = "margin: 0 0 10px; border-bottom: solid; color: var(--fg); text-align: center;"),
+      style = "flex: 1; min-height: 0; display: flex; flex-direction: column;",
+      h2("Backdoor Paths", style = "margin: 0 0 10px; border-bottom: solid; color: var(--fg); text-align: center;"),
       div(
          style = "flex: 1; display: flex; flex-direction: column; gap: 10px; overflow-y: auto;",
          pathButtonsUI(ns("pathButtons"))
