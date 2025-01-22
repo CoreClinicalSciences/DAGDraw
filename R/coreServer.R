@@ -38,11 +38,14 @@ coreServer <- function(input, output, session) {
       output$effectModifierSwitch <- renderUI({
          req(state$isTransportability())
          
-         materialSwitch(
-            inputId = "showEffectModifiers",
-            label = "Show Effect Modifiers",
-            status = "primary",
-            right = TRUE
+         div(class = "effect-modifier-container",
+             style = "width: 100%; font-size: 0.95rem;",
+             materialSwitch(
+                inputId = "showEffectModifiers",
+                label = "Show Effect Modifiers",
+                status = "primary", 
+                right = TRUE
+             )
          )
       })
       

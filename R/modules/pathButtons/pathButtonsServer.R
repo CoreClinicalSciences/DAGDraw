@@ -23,7 +23,9 @@ pathButtonsServer <- function(
             pathData <- toDataStorage$data %>%
                filter(name %in% pathData)
             
-            isHighlighted <- !is.null(current_states[[causalPathList()[i]]])
+            # Safely check if path exists in current_states
+            isHighlighted <- !is.null(current_states) && 
+               !is.null(current_states[[causalPathList()[i]]])
             
             buttonClass <- if (any(pathData$unmeasured == TRUE)) {
                paste("unmeasuredPath", if(isHighlighted) "highlighted" else "")

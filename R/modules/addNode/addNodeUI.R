@@ -21,8 +21,8 @@ addNodeUI <- function(id) {
             textInput(ns("name"), NULL, ""),
             uiOutput(ns("errorMessage")),
             radioButtons(ns("unmeasured"), tags$h5("Type"),
-                         c("Measured" = "measured",
-                           "Unmeasured" = "unmeasured"
+                         c("Observed" = "measured",
+                           "Unobserved" = "unmeasured"
                          )),
             fluidRow(
                h5(LabelMandatory("Connections")),

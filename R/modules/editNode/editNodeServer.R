@@ -47,8 +47,8 @@ editNodeServer <- function(id, toDataStorage, treatment, response,
                       inputId = ns("unmeasuredToggle"),
                       label = "Type",
                       choices =  c(
-                         "Measured" = "measured",
-                         "Unmeasured" = "unmeasured"),
+                         "Observed" = "measured",
+                         "Unobserved" = "unmeasured"),
                       selected = ifelse(any(childrenData$unmeasured, na.rm = TRUE),
                                         "unmeasured", "measured")
                    ),

@@ -8,8 +8,8 @@ createWelcomeModal <- function(session) {
             "Node names can be up to 14 characters, no spaces, and no special characters."
          ),
          style = "margin-top: 5px; margin-bottom: 15px; text-align: left;"),
-      textInput("treatmentName", "Treatment Name", ""),
-      textInput("responseName", "Response Name", ""),
+      textInput("treatmentName", label = TREATMENT),
+      textInput("responseName", label = RESPONSE),
       checkboxInput("transportability", "Enable Transportability?", FALSE),
       div(id = "errorMessageContainer",
           style = "color: red; margin-top: 10px; display: none;",

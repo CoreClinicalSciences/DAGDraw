@@ -36,38 +36,43 @@ compileUI <- function(theme) {
             # Sidebar Column
             column(
                width = 3,
-               style = "max-width: 300px;",
+               style = "max-width: 300px; height: 100vh;",
                card(
                   full_screen = TRUE,
                   displayNodesUI("displayNodes")
-               )
-            ),
+               ),
+               # DAG Options Accordion
+               card(
+                  h2("DAG Options", style = "margin: 0 0 10px; border-bottom: solid; color: var(--fg); text-align: center;"),
+                     # EffectModifierSwitch UI element is conditionally rendered based on state logic in the core server 
+                     div(style = "width: 100%;", uiOutput("effectModifierSwitch")),
+                     fluidRow(
+                        div(
+                           style = "width: 100%; font-size: 0.95rem;",
+                           materialSwitch(
+                              inputId = "showBackdoor",
+                              label = "Show Open Backdoor Paths",
+                              status = "primary",
+                              right = TRUE
+                           )
+                        )
+                     )
+                  )
+               ),
             # Main Content Column
             column(
                width = 9,
                card(
                   full_screen = TRUE,
-                  fluidRow(
-                     style = "margin: 15px 0;",
-                     column(11, uiOutput("graph")),
-                     column(1, actionButton("refreshLayout", NULL, icon = icon("refresh")))
-                  ),
-                  # DAG Options Accordion
-                  accordion(
-                     accordion_panel(
-                        "DAG Options",
-                        div(style = "width: 30%;", uiOutput("effectModifierSwitch")),
-                        fluidRow(
-                           div(
-                              style = "width: 30%;",
-                              materialSwitch(
-                                 inputId = "showBackdoor",
-                                 label = "Show Open Backdoor Paths",
-                                 status = "primary",
-                                 right = TRUE
-                              )
-                           )
-                        )
+                  div(
+                     style = "position: relative; width: 100%; height: fit-content",
+                     div(
+                        style = "position: absolute; top: 15px; right: 35px; z-index: 1;",
+                        actionButton("refreshLayout", NULL, icon = icon("refresh"))
+                     ),
+                     div(
+                        style = "margin: 15px 0; width: 100%; height: auto;",
+                        uiOutput("graph")
                      )
                   )
                )

@@ -79,7 +79,7 @@ BuildBaseGraph <- function(toData, treatment, response, transportability = FALSE
 # creates the legend 
 DAGLegend <- function() {
    legendGraph <- create_graph() %>%
-      add_node(label = "conditioned",
+      add_node(label = "Conditioned",
                node_aes = node_aes(
                   fontcolor = conditionedFontColor,
                   fillcolor = conditionedFillColor,
@@ -87,7 +87,7 @@ DAGLegend <- function() {
                   fixedsize = FALSE,
                   shape = "rectangle"
                )) %>%
-      add_node(label = "unmeasured",
+      add_node(label = UNMEASURED,
                node_aes = node_aes(
                   fontcolor = unmeasuredNodeFontColor,
                   fillcolor = unmeasuredNodeFillColor,
@@ -100,18 +100,6 @@ DAGLegend <- function() {
 }
 
 ## Effect Modifiers ---------------------------------------------------
-
-# addEffectModifiersToGraph <- function( graph, effectModifiers ){
-#    # Color the effect modifiers
-#    if(length(effectModifiers > 0)) {
-#       graph <- graph %>%
-#          mutate_node_attrs(effectModifier = if_else(label %in% effectModifiers, TRUE, FALSE)) %>%
-#          select_nodes(conditions = effectModifier) %>%
-#          set_node_attrs_ws(node_attr = color, value = effectModifierOutlineColor) %>%
-#          clear_selection()
-#    }
-#    return(graph)
-# }
 
 addEffectModifiersToGraph <- function(graph, effectModifiers) {
    # Return early if no graph or no effect modifiers
