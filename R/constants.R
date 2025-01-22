@@ -27,3 +27,14 @@ RESPONSE <- "Response or Outcome Name"
 MEASURED <- "Observed"
 UNMEASURED <- "Unobserved"
 
+# igraph layout configuration
+LAYOUT_OPTIONS <- list(
+   "Auto" = "nicely",
+   "Circle" = "circle",
+   "Fruchterman and Reingold" = "fr",
+   "Kamada-Kawai" = "kk",
+   "Neato" = "neato",
+   "Tree" = "tree"
+)
+
+DEFAULT_LAYOUT <- "nicely"
