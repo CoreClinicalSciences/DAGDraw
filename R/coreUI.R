@@ -30,6 +30,7 @@ createClipboardHandler <- function() {
 # DAG Options Component
 createDagOptions <- function() {
    card(
+      style = "flex-shrink: 0;",  # Prevent shrinking
       h2("DAG Options", style = "margin: 0 0 10px; border-bottom: solid; color: var(--fg); text-align: center;"),
       div(
          div(
@@ -45,7 +46,7 @@ createDagOptions <- function() {
             style = "width: 100%; font-size: 0.95rem;",
             materialSwitch(
                inputId = "showBackdoor",
-               label = "Show Open Backdoor Paths",
+               label = "Show Backdoor Paths",
                status = "primary",
                right = TRUE
             )
@@ -54,6 +55,19 @@ createDagOptions <- function() {
             style = "width: 100%;", 
             uiOutput("effectModifierSwitch")
          )
+      )
+   )
+}
+
+# Path Analysis Component
+createPathAnalysis <- function() {
+   ns <- NS("openDAG")
+   card(
+      style = "flex: 1; min-height: 0; display: flex; flex-direction: column;",  # Added flex grow
+      h2("Path Analysis", style = "margin: 0 0 10px; border-bottom: solid; color: var(--fg); text-align: center;"),
+      div(
+         style = "flex: 1; display: flex; flex-direction: column; gap: 10px; overflow-y: auto;",
+         pathButtonsUI(ns("pathButtons"))
       )
    )
 }
@@ -67,8 +81,17 @@ createSidebar <- function() {
          full_screen = TRUE,
          style = "flex: 1; min-height: 0; display: flex; flex-direction: column;",
          displayNodesUI("displayNodes")
-      ),
-      createDagOptions()
+      )
+   )
+}
+
+# Right Column Component
+createRightColumn <- function() {
+   column(
+      width = 2,
+      style = "height: 90vh; display: flex; flex-direction: column; gap: 10px;",
+      createDagOptions(),
+      createPathAnalysis()
    )
 }
 
@@ -86,24 +109,6 @@ createMainContent <- function() {
                style = "height: 100%; display: flex; justify-content: center; align-items: center;",
                uiOutput("graph")
             )
-         )
-      )
-   )
-}
-
-# Pathing columns
-createPathButtonsColumn <- function() {
-   ns <- NS("openDAG")
-   
-   column(
-      width = 2,
-      style = "height: 90vh; display: flex; flex-direction: column;",
-      card(
-         full_screen = TRUE,
-         h2("Path Analysis", style = "margin: 0 0 10px; border-bottom: solid; color: var(--fg); text-align: center;"),
-         div(
-            style = "flex: 1; display: flex; flex-direction: column; gap: 10px;",
-            pathButtonsUI(ns("pathButtons"))
          )
       )
    )
@@ -145,7 +150,7 @@ compileUI <- function(theme) {
          fluidRow(
             createSidebar(),
             createMainContent(),
-            createPathButtonsColumn()
+            createRightColumn()
          )
       ),
       

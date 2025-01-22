@@ -11,10 +11,18 @@ pathButtonsServer <- function(
    moduleServer(id, function(input, output, session) {
       ns <- session$ns
       
+      # Initialize buttonHighlightStates if it's NULL
+      observe({
+         if (is.null(buttonHighlightStates())) {
+            buttonHighlightStates(list())
+         }
+      })
+      
       # Path buttons
       observe({
          req(causalPathList())
          current_states <- buttonHighlightStates()
+         if (is.null(current_states)) current_states <- list()
          
          buttons <- lapply(seq_along(causalPathList()), function(i) {
             uniqueId <- paste0("viewPath", i)
@@ -23,8 +31,9 @@ pathButtonsServer <- function(
             pathData <- toDataStorage$data %>%
                filter(name %in% pathData)
             
-            # Safely check if path exists in current_states
+            # Check if path exists in current_states
             isHighlighted <- !is.null(current_states) && 
+               length(current_states) > 0 &&
                !is.null(current_states[[causalPathList()[i]]])
             
             buttonClass <- if (any(pathData$unmeasured == TRUE)) {
@@ -61,6 +70,7 @@ pathButtonsServer <- function(
                observeEvent(input[[paste0("viewPath", i)]], {
                   pathString <- causalPathList()[[i]]
                   current_states <- buttonHighlightStates()
+                  if (is.null(current_states)) current_states <- list()
                   
                   if (!is.null(current_states[[pathString]])) {
                      current_states[[pathString]] <- NULL
@@ -127,7 +137,7 @@ pathButtonsServer <- function(
          })
       })
       
-      # Return reactive values that need to be accessed by parent module
+      # Return reactive values
       return(list(
          buttonHighlightStates = buttonHighlightStates,
          highlightedPathList = highlightedPathList
