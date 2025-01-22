@@ -5,7 +5,8 @@ compileUI <- function(theme) {
       theme = theme,
       # Header with logo
       title = div(
-         style = "display: flex; align-items: center; justify-content: space-between; width: 100%;",
+         class = "navbar-title-container",
+         style = "width: 100%; position: relative; top: 15px",
          span("DAGDraw v0.1.1"),
          tags$img(src = "CCSlogo.png", height = "35px", style = "margin-right: 10px; margin-left: 10px;")
       ),

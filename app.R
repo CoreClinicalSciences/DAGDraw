@@ -64,14 +64,31 @@ appTheme <- bs_theme(
    success = "#423F85",
    base_font = font_google("Roboto"),
    code_font = font_google("JetBrains Mono"),
-   heading_font = font_google("Lato")
+   heading_font = font_google("Lato"),
 ) |>
    
    bs_add_rules("
-     .conditioned, .highlighted { 
-       background-color: var(--bs-secondary) !important;
-       color: white !important;
+     .conditioned { 
+         background-color: #D8EB79 !important;
+         border-color: #798343 !important;
      }
+     
+     .highlighted {
+         background-color: var(--bs-secondary) !important;
+         color: white !important
+     }
+   
+     .unmeasuredNode {
+         background-color: lightgrey !important;
+         border-color: #767372 !important;
+     }
+     
+     @media screen and (max-width: 768px) {
+            .navbar-title-container {
+               position: static !important;
+               top: 0 !important;
+            }
+         }
    ")
 
 ## Environment Configuration ---------------------------------------------

@@ -3,7 +3,7 @@ displayNodesUI <- function(id) {
    
    tagList(
       div(
-         style = "width: 250px; overflow-x: hidden; padding: 0;",
+         style = "width: 225px; overflow-x: hidden; padding: 0;",
          uiOutput(ns("addNodeForm")),
          div(
             style = "width: 100%; padding: 0;",

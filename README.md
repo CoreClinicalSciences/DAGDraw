@@ -1,9 +1,13 @@
 ## Package Management
 
-##This project uses renv for package management. On macOS, packages will be installed as binaries by default through configuration in `.Rprofile`. To install all required packages:
+##This project uses renv for package management.
 
-##```R
-##renv::restore()
+# ```R
+# renv::restore()
+
+## In order to install igraph make sure you have a compatible toolchain installed, including a Fortran compiler. On macOS, make sure you have Xcode and gfortran. For Windows, you will need Rtools.
+
+
 
 # DAGDraw - Causal Diagrams Visualization shiny app <img src="productionDAGshiny/www/DAGDraw-Logo.png" align="right" width="80"/>
 
