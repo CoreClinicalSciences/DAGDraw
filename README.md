@@ -1,12 +1,27 @@
-## Package Management
+# DAGDraw - Causal Diagrams Visualization <img src="productionDAGshiny/www/DAGDraw-Logo.png" align="right" width="80"/>
 
-##This project uses renv for package management.
+A Shiny application for building and analyzing Directed Acyclic Graphs (DAGs) to support causal reasoning in research.
 
-# ```R
-# renv::restore()
+## Overview
 
-## In order to install igraph make sure you have a compatible toolchain installed, including a Fortran compiler. On macOS, make sure you have Xcode and gfortran. For Windows, you will need Rtools.
+DAGDraw enables researchers to:
+- Visualize causal relationships between variables
+- Identify and analyze backdoor paths
+- Perform transportability analysis
+- Determine necessary control variables
 
+## Installation
+
+### Package Management
+This project uses renv for dependency management. To install required packages:
+
+##```R
+renv::restore()
+
+## Note for Mac users: If igraph installation fails, try:
+renv::install("igraph", type = "binary")
+
+For igraph source installation troubleshooting, visit: https://r.igraph.org/articles/installation-troubleshooting
 
 
 # DAGDraw - Causal Diagrams Visualization shiny app <img src="productionDAGshiny/www/DAGDraw-Logo.png" align="right" width="80"/>
