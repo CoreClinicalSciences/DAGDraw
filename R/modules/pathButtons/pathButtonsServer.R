@@ -47,16 +47,6 @@ pathButtonsServer <- function(
          })
       })
       
-      # Warning UI for unmeasured nodes
-      output$unmeasuredWarning <- renderUI({
-         if (showWarning()) {
-            h6(
-               "*Orange Path cards contain an unmeasured node",
-               style = "color:var(--success); margin:5px;"
-            )
-         }
-      })
-      
       # Button handlers
       buttonList <- reactiveValues(values = c())
       
