@@ -49,7 +49,7 @@ compileUI <- function(theme) {
                      style = "width: 100%; margin-bottom: 10px;",
                      selectInput(
                         inputId = "layoutSelect",
-                        label = "Layout",
+                        label = "Graph Layout Algorithm",
                         choices = c(
                            "Kamada-Kawai" = "kk",
                            "Tree" = "tree",

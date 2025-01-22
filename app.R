@@ -55,13 +55,49 @@ source("R/coreServer.R")
 source("R/welcomeModal.R")
 source("R/stateManagement.R")
 
-## Environment Configuration ---------------------------------------------
+## Define App Theme --------------------------------------------------
+# Bslib theme
+appTheme <- bs_theme(
+   bg = "#ffffff",
+   fg = "#000000",
+   primary = "#BDDD21",
+   secondary = "#462A79",
+   success = "#423F85",
+   base_font = font_google("Roboto"),
+   code_font = font_google("JetBrains Mono"),
+   heading_font = font_google("Lato"),
+) |>
+   
+   bs_add_rules("
+     .conditioned { 
+         background-color: #D8EB79 !important;
+         border-color: #798343 !important;
+     }
+     
+     .highlighted {
+         background-color: var(--bs-secondary) !important;
+         color: white !important
+     }
+   
+     .unmeasuredNode {
+         background-color: lightgrey !important;
+         border-color: #767372 !important;
+     }
+     
+     @media screen and (max-width: 768px) {
+            .navbar-title-container {
+               position: static !important;
+               top: 0 !important;
+            }
+         }
+   ")
+
+## Environment Configuration -------------------------------------------
 app_env <- Sys.getenv("R_ENV", "development")
 warning_level <- if(app_env == "production") -1 else 1
 options(warn = warning_level)
 
 ## Compile UI -------------------------------------------------------
-# appTheme defined in constants.R
 coreUI <- compileUI(appTheme)
 
 ## Initialize Shiny Application -------------------------------------
