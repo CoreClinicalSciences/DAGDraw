@@ -61,9 +61,9 @@ coreServer <- function(input, output, session) {
          }
       })
       
-      # Layout refresh handler
-      observeEvent(input$refreshLayout, {
-         state$updateLayout()
+      # Layout handler
+      observeEvent(input$layoutSelect, {
+         state$updateLayout(input$layoutSelect)
       })
       
       # Get dag code for clipboard

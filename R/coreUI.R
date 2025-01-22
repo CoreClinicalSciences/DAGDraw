@@ -44,32 +44,46 @@ compileUI <- function(theme) {
                # DAG Options Accordion
                card(
                   h2("DAG Options", style = "margin: 0 0 10px; border-bottom: solid; color: var(--fg); text-align: center;"),
-                     # EffectModifierSwitch UI element is conditionally rendered based on state logic in the core server 
-                     div(style = "width: 100%;", uiOutput("effectModifierSwitch")),
-                     fluidRow(
-                        div(
-                           style = "width: 100%; font-size: 0.95rem;",
-                           materialSwitch(
-                              inputId = "showBackdoor",
-                              label = "Show Open Backdoor Paths",
-                              status = "primary",
-                              right = TRUE
-                           )
+                  # Layout dropdown
+                  div(
+                     style = "width: 100%; margin-bottom: 10px;",
+                     selectInput(
+                        inputId = "layoutSelect",
+                        label = "Layout",
+                        choices = c(
+                           "Kamada-Kawai" = "kk",
+                           "Tree" = "tree",
+                           "Circle" = "circle"
+                        ),
+                        selected = "kk"
+                     )
+                  ),
+                  # EffectModifierSwitch UI element is conditionally rendered based on state logic in the core server 
+                  div(style = "width: 100%;", uiOutput("effectModifierSwitch")),
+                  fluidRow(
+                     div(
+                        style = "width: 100%; font-size: 0.95rem;",
+                        materialSwitch(
+                           inputId = "showBackdoor",
+                           label = "Show Open Backdoor Paths",
+                           status = "primary",
+                           right = TRUE
                         )
                      )
-                  )
-               ),
+                  ),
+               )
+            ),
             # Main Content Column
             column(
                width = 9,
                card(
                   full_screen = TRUE,
                   div(
-                     style = "position: relative; width: 100%; height: fit-content",
-                     div(
-                        style = "position: absolute; top: 15px; right: 35px; z-index: 1;",
-                        actionButton("refreshLayout", NULL, icon = icon("refresh"))
-                     ),
+                     # style = "position: relative; width: 100%; height: fit-content",
+                     # div(
+                     #    style = "position: absolute; top: 15px; right: 35px; z-index: 1;",
+                     #    actionButton("refreshLayout", NULL, icon = icon("refresh"))
+                     # ),
                      div(
                         style = "margin: 15px 0; width: 100%; height: auto;",
                         uiOutput("graph")

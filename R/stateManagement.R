@@ -58,12 +58,8 @@ initializeState <- function(session) {
    }
    
    # Function to update layout
-   updateLayout <- function() {
-      layout(switch(layout(),
-                    "kk" = "tree",
-                    "tree" = "circle",
-                    "circle" = "kk"
-      ))
+   updateLayout <- function(newLayout) {
+      layout(newLayout)
    }
    
    # Function to update conditioned nodes
