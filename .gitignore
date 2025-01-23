@@ -1,4 +1,17 @@
-.Rproj.user
+# R specific
+.Rproj.user/
 .Rhistory
 .RData
 .Ruserdata
+
+# Shiny specific
+rsconnect/
+
+# OS specific
+.DS_Store
+Thumbs.db
+
+# Editor specific
+*.swp
+*.swo
+.idea/
