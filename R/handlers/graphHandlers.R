@@ -30,6 +30,7 @@ BuildBaseGraph <- function(toData, treatment, response, transportability = FALSE
          from_to_map = label
       ) %>%
       select_nodes() %>%
+      set_node_attrs_ws(node_attr = penwidth, value = 0.75) %>%
       set_node_attrs_ws(node_attr = fixedsize, value = FALSE) %>%
       set_node_attrs_ws(node_attr = shape, value = "rectangle") %>%
       set_node_attrs_ws(node_attr = font, value = "Open Sans") %>%

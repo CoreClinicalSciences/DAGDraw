@@ -1,7 +1,8 @@
 # Styling constants -----------------------------------------------
-NODE_BUTTON_STYLE <- "display: inline-block; width: 150px; height: 40px; text-align: center; padding: 0; font-size: 14px; line-height: 40px;"
+NODE_BUTTON_STYLE <- "display: inline-block; width: 150px; height: 40px; text-align: center; padding: 0; margin: 1px 0; font-size: 14px; line-height: 40px;"
 NODE_CONTAINER_STYLE <- "display: inline-flex; align-items: center; gap: 5px;"
 NODE_ROW_STYLE <- "width: 100%; padding-left: 0;"
+BASENODE_STYLE <- paste0(NODE_BUTTON_STYLE, " background-color: #605279; color: white; border-color:#372f45;")
 
 # UI Element Creation Functions -----------------------------------
 createNodeButton <- function(ns, name, class) {
@@ -59,7 +60,8 @@ createBaseNodeRow <- function(ns, row) {
    div(
       style = NODE_CONTAINER_STYLE,
       div(style = "width: 19px;"),
-      createNodeButton(ns, row["name"], "baseNode")
+      createNodeButton(ns, row["name"], "baseNode") %>% 
+         tagAppendAttributes(style = BASENODE_STYLE)
    )
 }
 

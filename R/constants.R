@@ -4,14 +4,14 @@ setOutlineColor <- "#423f85"
 setFontColor <- "black"
 
 # Base node colors (for treatment and response)
-baseNodeFillColor <- "white"
-baseNodeOutlineColor <- "black"
-baseNodeFontColor <- "black"
+baseNodeFillColor <- "#605279"
+baseNodeOutlineColor <- "#372f45"
+baseNodeFontColor <- "white"
 
 # Conditioned node colors
 conditionedFillColor <- "#D8EB79"
-conditionedOutlineColor <- "#BDDD21"
-conditionedFontColor <- "black"
+conditionedOutlineColor <- "#4a5129"
+conditionedFontColor <- "#4a5129"
 
 # Unmeasured node colors
 unmeasuredNodeFillColor <- "lightgrey"
