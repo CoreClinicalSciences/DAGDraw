@@ -20,7 +20,6 @@ pathButtonsServer <- function(
       
       # Path buttons
       observe({
-         req(causalPathList())
          current_states <- buttonHighlightStates()
          if (is.null(current_states)) current_states <- list()
          
