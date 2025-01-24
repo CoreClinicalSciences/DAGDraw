@@ -66,8 +66,8 @@ editNodeServer <- function(id, toDataStorage, treatment, response,
                              checkboxGroupInput(
                                 inputId = ns(paste0("parentUpdate", nodeName)),
                                 label = "Parents",
-                                choiceNames = sort(nodeVector[! nodeVector %in% c(nodeName, response())]),
-                                choiceValues = sort(nodeVector[! nodeVector %in% c(nodeName, response())]),
+                                choiceNames = sort(nodeVector[! nodeVector %in% c(nodeName)]),
+                                choiceValues = sort(nodeVector[! nodeVector %in% c(nodeName)]),
                                 selected = parentData$name
                              )
                       )

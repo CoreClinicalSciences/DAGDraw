@@ -12,14 +12,12 @@ addNodeServer <- function(id, toDataStorage, treatment, response, highlightedPat
     })
 
     output$checkboxGroupFrom <- renderUI({
-      # Stops Y from having children
-      from_df <- toDataStorage$data %>% filter(name != response())
 
       checkboxGroupInput(
         inputId = ns("parents"),
         label = "Parents",
-        choiceNames = sort(unique(from_df$name)),
-        choiceValues = sort(unique(from_df$name))
+        choiceNames = sort(unique(toDataStorage$data$name)),
+        choiceValues = sort(unique(toDataStorage$data$name))
       )
     })
 
