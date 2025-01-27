@@ -70,7 +70,7 @@ coreServer <- function(input, output, session) {
       getDagRCode(state$toDataStorage, state$dagDownloads)
       
       # Initiate Download Handlers
-      setupDownloadHandlers(output, state)
+      setupDownloadHandler(output, state)
       
       # R Code Copy Handler
       observeEvent(input$downloadRCode, {
