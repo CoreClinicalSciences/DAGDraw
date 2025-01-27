@@ -130,9 +130,7 @@ createVersionHistory <- function() {
 createDownloadsMenu <- function() {
    nav_menu(
       "Downloads",
-      nav_item(downloadButton("downloadSVG", "Download DAG as SVG", icon = icon("download"))),
-      nav_item(downloadButton("downloadPNG", "Download DAG as PNG", icon = icon("download"))),
-      nav_item(downloadButton("legendDownload", "Download DAG Legend", icon = icon("download"))),
+      nav_item(downloadButton("downloadDag", "Download Dag", style = "padding: 10px 20px; border: 1px solid #462A79; border-radius: 3px; margin-bottom: 3px;", icon = icon("file-alt"))),
       nav_item(actionButton("downloadRCode", "Copy R-Code to Clipboard", icon = icon("copy")))
    )
 }
@@ -144,6 +142,13 @@ compileUI <- function(theme) {
       title = createHeader(),
       useShinyjs(),
       createClipboardHandler(),
+      # Custom CSS for download button hover
+      tags$style(HTML(
+         "#downloadDag:hover {
+        background-color: #462A79 !important;
+        color: white !important;
+      }"
+      )),
       
       # Main Panel
       nav_panel(

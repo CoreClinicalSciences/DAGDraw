@@ -1,0 +1,60 @@
+---
+output: 
+  pdf_document:
+    keep_tex: true
+papersize: letter
+geometry: margin=0.75in
+params:
+  ccsLogo: NA
+  dagdrawLogo: NA
+  dagImage: NA
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r logos, out.height="50px", fig.show="hold", fig.align="left"}
+par(mar=c(0,0,0,0))
+if (!is.na(params$ccsLogo)) {
+  knitr::include_graphics(params$ccsLogo)
+}
+if (!is.na(params$dagdrawLogo)) {
+  knitr::include_graphics(params$dagdrawLogo)
+}
+```
+
+```{r legend, out.height="50px", fig.show="hold", fig.align="left"}
+plot.new()
+square_size <- 0.2
+y_spacing <- 0.3 
+x_start <- 0.1
+x_end <- x_start + square_size
+y_positions <- seq(0.8, 0.2, by=-y_spacing)
+
+fill_colors <- c("#605279", "lightgrey", "#D8EB79")
+border_colors <- c("#372f45", "#767372", "#4a5129")
+labels <- c("Base Node", "Unobserved", "Conditioned")
+
+for(i in 1:3) {
+    rect(x_start, 
+         y_positions[i], 
+         x_end, 
+         y_positions[i] + square_size,
+         col = fill_colors[i],
+         border = border_colors[i],
+         lwd = 1)
+    text(0.35, 
+         y_positions[i] + 0.075, 
+         labels[i], 
+         pos = 4, 
+         cex = 3.5)
+}
+```
+
+```{r dag, fig.height=5, fig.width=7.5, out.height="500px", fig.align="center"}
+par(mar=c(0,0,0,0))
+if (!is.na(params$dagImage)) {
+  knitr::include_graphics(params$dagImage)
+}
+```
