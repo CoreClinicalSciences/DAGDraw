@@ -48,7 +48,7 @@ validateState <- function(state) {
    }
 }
 
-setupReportHandler <- function(output, state) {
+setupDowloadHandler <- function(output, state) {
    output$downloadDag <- downloadHandler(
       filename = function() {
          validateState(state)
