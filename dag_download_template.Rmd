@@ -72,7 +72,7 @@ cat("\\vspace{0.5cm}")
 ```{r contact, echo=FALSE, results='asis'}
 cat("\\vfill")
 cat("\\noindent{
-    \\large
+    \\large\\sffamily
     \\url{www.coreclinicalsciences.com}
     \\hfill ccs@coreclinicalsciences.com}"
     )
