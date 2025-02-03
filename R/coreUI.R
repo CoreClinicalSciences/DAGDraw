@@ -3,7 +3,7 @@ createHeader <- function() {
    div(
       class = "navbar-title-container",
       style = "width: 100%; position: relative; top: 15px",
-      span("DAGDraw v0.2.1"),
+      span("DAGDraw v1.0.0"),
       tags$img(src = "CCSlogo.png", height = "35px", style = "margin-right: 10px; margin-left: 10px;")
    )
 }
@@ -119,6 +119,7 @@ createVersionHistory <- function() {
    div(
       tags$h1("Version History"),
       tags$ul(
+         tags$li("Version 1.0.0 - Improved legend UI, and download format"),
          tags$li("Version 0.2.1 - Updated UI, and updated Response/Outcome node functions"),
          tags$li("Version 0.2.0 - Updated UI, and refactored code"),
          tags$li("Version 0.1.1 - Updated copy & paste functions, added tooltips, and revised layout"),
