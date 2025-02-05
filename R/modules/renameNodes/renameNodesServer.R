@@ -23,7 +23,7 @@ renameNodesServer <- function(id, toDataStorage, treatment, response,
       
       if (!observerInitialized()) {
          observeEvent(input$renameNodes, {
-            # Get all unique node names (excluding bignoreList)
+            # Get all unique node names (excluding ignoreList)
             uniqueNodes <- sort(unique(toDataStorage$data$name[!(toDataStorage$data$name %in% ignoreList)]))
             
             # Create a named vector for checked states
@@ -64,8 +64,8 @@ renameNodesServer <- function(id, toDataStorage, treatment, response,
             badNameList <- c()
             
             # Make sure all new names are unique
-            uniqueNames <- unique(newNameList)
-            uniqueSubmit <- length(uniqueNames) == length(newNameList)
+            isParticipation <- any(tolower(newNameList) == "participation")
+            uniqueSubmit <- length(unique(tolower(newNameList))) == length(newNameList) && !isParticipation
             
             # Make sure names follow guidelines
             for (name in newNameList) {
