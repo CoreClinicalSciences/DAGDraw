@@ -74,7 +74,8 @@ coreServer <- function(input, output, session) {
       
       # R Code Copy Handler
       observeEvent(input$downloadRCode, {
-         session$sendCustomMessage("copyToClipboard", state$dagDownloads$RCode)
+         rCode <- state$dagDownloads$RCode
+         session$sendCustomMessage("copyToClipboard", rCode)
       })
    })
 }

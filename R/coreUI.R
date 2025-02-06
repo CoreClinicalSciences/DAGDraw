@@ -11,18 +11,14 @@ createHeader <- function() {
 # Clipboard JavaScript Handler
 createClipboardHandler <- function() {
    tags$script(HTML("
-    Shiny.addCustomMessageHandler('copyToClipboard', function(message) {
-      const tempTextArea = document.createElement('textarea');
-      tempTextArea.value = message;
-      document.body.appendChild(tempTextArea);
-      tempTextArea.select();
+    Shiny.addCustomMessageHandler('copyToClipboard', async function(rCode) {
       try {
-          document.execCommand('copy');
-          alert('R Code copied to clipboard!');
+        await navigator.clipboard.writeText(rCode);
+        alert('R Code copied to clipboard!');
       } catch (err) {
-          alert('Unable to copy text. Please try again.');
+        console.error('Failed to copy text: ', err);
+        alert('Unable to copy R Code. Please try again.');
       }
-      document.body.removeChild(tempTextArea);
     });
   "))
 }
