@@ -5,7 +5,7 @@ createWelcomeModal <- function(session) {
       h5("Please enter the initial settings for your DAG.",
          tooltip(
             bsicons::bs_icon("info-circle-fill", title = "Name Rules"),
-            "Node names can be up to 14 characters, no spaces, and no special characters."
+            "Node names can only contain alphanumeric or underscore characters. No spaces or other special characters."
          ),
          style = "margin-top: 5px; margin-bottom: 15px; text-align: left;"),
       textInput("treatmentName", label = TREATMENT),

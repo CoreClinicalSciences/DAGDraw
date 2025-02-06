@@ -1,7 +1,7 @@
 # Checks that name follows the rules:
 #    Not an empty value
 #    No Special Characters
-#    below 14 Characters
+#    below 24 Characters
 #    Isn't graph or node
 
 CheckNameInput <- function( name ) {
@@ -25,20 +25,19 @@ CheckNameInput <- function( name ) {
       # No spaces or special characters in the input
       no_space_special_char <- (
          str_length(name) == str_length(str_replace_all(name, " ", "")) &&
-            !(grepl("[^A-Za-z0-9_ ]", name))
+            !(grepl("[^A-Za-z0-9_]", name))
       )
       
       if(!no_space_special_char){
          error_text <- "Do not use spaces or special characters in name"
       }
       
-      below_char <- str_length(name) <= 14
+      below_char <- str_length(name) <= 24
       
       if(!below_char){
-         error_text <- "Name must be below 14 characters"
+         error_text <- "Name must be below 24 characters"
       }
    }
-   
    
    text_filled <- ((
       name_not_null && name_not_special && no_space_special_char && below_char

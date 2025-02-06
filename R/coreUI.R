@@ -133,7 +133,7 @@ createDownloadsMenu <- function() {
    nav_menu(
       "Downloads",
       nav_item(downloadButton("downloadDag",
-                              "Download Dag",
+                              "Download DAG",
                               style = "padding: 10px 20px; border: 1px solid #462A79; color: #462A79; border-radius: 3px; margin-bottom: 3px;",
                               icon = icon("file-alt"))
                ),

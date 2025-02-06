@@ -54,7 +54,7 @@ addNodeServer <- function(id, toDataStorage, treatment, response, highlightedPat
     # When new node button is pushed
     observeEvent(input$add_node, {
       # check name doesn't already exist
-      if (!(input$name %in% unique(toDataStorage$data$name))) {
+       if (!tolower(input$name) %in% tolower(unique(toDataStorage$data$name))) {
         # grab form data
         newToDF <- data.frame(
           name = input$name,
@@ -104,7 +104,7 @@ addNodeServer <- function(id, toDataStorage, treatment, response, highlightedPat
         }
         
         # Set the base variable for x and y
-        baseList <- c(treatment(), response(), "participation")
+        baseList <- c(treatment(), response(), "Participation")
         
         temp <- temp %>%
           mutate(base = name %in% baseList)
@@ -130,7 +130,7 @@ addNodeServer <- function(id, toDataStorage, treatment, response, highlightedPat
             id = "errorMessage", class = "errorMessage")
         })
 
-        # Hide after 5 seconds
+        # Hide after 3 seconds
         runjs("setTimeout(function() { $('#errorMessage').fadeOut(); }, 3000);")
       }
     })

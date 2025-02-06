@@ -38,7 +38,17 @@ getCurrentDag <- function(state) {
 getDagRCode <- function(toDataStorage, dagDownloads){
    observe({
       dagString <- DataToDag(toDataStorage$data)
-      dagDownloads$RCode <- dagString
+      # Wrap the DAG string and import daggity
+      fullCode <- paste0(
+         "# daggity package is required\n",
+         "# Install if not already installed\n\n",
+         "library(dagitty)\n\n",
+         "dag <- dagitty('", dagString, "')\n\n",
+         "# Plot the DAG:\n\n",
+         "plot(dag)"
+      )
+      
+      dagDownloads$RCode <- fullCode
    })
 }
 
