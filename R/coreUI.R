@@ -11,12 +11,12 @@ createHeader <- function() {
 # Clipboard JavaScript Handler
 createClipboardHandler <- function() {
    tags$script(HTML("
-    Shiny.addCustomMessageHandler('copyToClipboard', function(rCode) {
+    Shiny.addCustomMessageHandler('copyToClipboard', async function(rCode) {
       try {
-         navigator.clipboard.writeText(rCode);
+         await navigator.clipboard.writeText(rCode);
          alert('R Code copied to clipboard!');
       } catch (err) {
-         alert('Unable to copy R Code.');
+         alert('Unable to copy R Code:', err);
       }
     });
   "))
