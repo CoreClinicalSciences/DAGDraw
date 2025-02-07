@@ -11,12 +11,34 @@ createHeader <- function() {
 # Clipboard JavaScript Handler
 createClipboardHandler <- function() {
    tags$script(HTML("
-    Shiny.addCustomMessageHandler('copyToClipboard', function(rCode) {
+    Shiny.addCustomMessageHandler('copyToClipboard', async function(rCode) {
+    
+      function fallbackCopyToClipboard(rCode) {
+         const tempInput = document.createElement('input');
+         tempInput.value = rCode;
+         document.body.appendChild(tempInput);
+         tempInput.select();
+         
+         try {
+            document.execCommand('copy');
+            alert('R Code copied to clipboard!');
+         } catch (err) {
+            alert('Failed to copy to clipboard:', err);
+         } finally {
+            document.body.removeChild(tempInput);
+         }
+      }
+      
       try {
-         navigator.clipboard.writeText(rCode);
+         await navigator.clipboard.writeText(rCode);
          alert('R Code copied to clipboard!');
       } catch (err) {
-         alert('Unable to copy R Code.');
+         if (err instanceof DOMException && err.name === 'NotAllowedError') {
+            alert('Please allow clipboard access to copy DAG code.');
+         } else {
+            alert('Failed to copy to clipboard:', err);
+            fallbackCopyToClipboard(rCode);
+         }
       }
     });
   "))
