@@ -17,7 +17,7 @@ createClipboardHandler <- function() {
          await navigator.clipboard.writeText(rCode);
          alert('R Code copied to clipboard!');
       } catch (err) {
-         alert('Failed to copy to clipboard. Your browser may not be compatible');
+         alert('Failed to copy to clipboard. Your browser may not be compatible.');
       }
     });
   "))
