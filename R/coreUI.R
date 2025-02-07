@@ -12,29 +12,12 @@ createHeader <- function() {
 createClipboardHandler <- function() {
    tags$script(HTML("
     Shiny.addCustomMessageHandler('copyToClipboard', async function(rCode) {
-    
-      function fallbackCopyToClipboard(rCode) {
-         const tempInput = document.createElement('input');
-         tempInput.value = rCode;
-         document.body.appendChild(tempInput);
-         tempInput.select();
-         
-         try {
-            document.execCommand('copy');
-            alert('R Code copied to clipboard!');
-         } catch (err) {
-            alert('Failed to copy to clipboard:', err);
-         } finally {
-            document.body.removeChild(tempInput);
-         }
-      }
       
       try {
          await navigator.clipboard.writeText(rCode);
          alert('R Code copied to clipboard!');
       } catch (err) {
-         alert('Failed to copy to clipboard:', err);
-         fallbackCopyToClipboard(rCode);
+         alert('Failed to copy to clipboard. Your browser may not be compatible');
       }
     });
   "))
